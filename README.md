@@ -75,3 +75,10 @@ Nest is [MIT licensed](LICENSE).
 ### Backend de una aplicacion To Do List
 
 Se podra crear, leer, actualizar y eliminar una tarea.
+
+Se utilizo:
+TypeORM - Como ORM -npm install --save @nestjs/typeorm typeorm mysql2
+MYSQL - Como base de datos
+Swagegr - Para documentar - npm install --save @nestjs/swagger swagger-ui-express
+class validator y class transformer - Para validar dtos - npm i --save class-validator class-transformer
+config - Para configurar el .env - npm i --save @nestjs/config
