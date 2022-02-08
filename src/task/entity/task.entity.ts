@@ -1,7 +1,14 @@
 /* eslint-disable prettier/prettier */
+import { User } from './../../user/entities/user.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity('tasks')
 export class Task {
@@ -20,4 +27,8 @@ export class Task {
   @ApiProperty()
   @Column({ type: 'boolean' })
   status: boolean;
+
+  @ManyToOne(() => User, (user) => user.tasks, { eager: true })
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 }

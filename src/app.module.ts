@@ -1,10 +1,14 @@
 /* eslint-disable prettier/prettier */
+// import { roles } from './app.roles';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TaskModule } from './task/task.module';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+// import { AccessControlModule } from 'nest-access-control';
 
 @Module({
   imports: [
@@ -18,11 +22,15 @@ import { TaskModule } from './task/task.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
     }),
+    // AccessControlModule.forRoles(roles),
     TaskModule,
+    UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

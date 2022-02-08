@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { CreateTaskDTO } from './dtos/create-task.dto';
 import { Task } from './entity/task.entity';
 /* eslint-disable prettier/prettier */
@@ -9,10 +10,13 @@ import { Repository } from 'typeorm';
 export class TaskService {
   constructor(
     @InjectRepository(Task) private readonly taskRepository: Repository<Task>,
+    private readonly authService: AuthService,
   ) {}
 
-  async getAll(): Promise<Task[]> {
-    return await this.taskRepository.find();
+  async getAll() {
+    const data1 = await this.taskRepository.find({});
+
+    return data1;
   }
 
   async getTaskById(id: number): Promise<Task> {

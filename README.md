@@ -82,3 +82,12 @@ MYSQL - Como base de datos
 Swagegr - Para documentar - npm install --save @nestjs/swagger swagger-ui-express
 class validator y class transformer - Para validar dtos - npm i --save class-validator class-transformer
 config - Para configurar el .env - npm i --save @nestjs/config
+bcrypt - Para encriptar contraseñas - npm i bcrypt && npm i -D @types/bcrypt
+passport - Para autenticacion - npm install --save @nestjs/passport passport passport-local && npm install --save-dev @types/passport-local
+jwt - Para autenticacion - npm install --save @nestjs/jwt passport-jwt && npm install --save-dev @types/passport-jwt
+
+// Precaucion , cuando usas el import por defecto del typescript :
+import { Strategy } from 'passport-local'; -- en algunos debo importar de 'passport'
+eso me tiraba error de password
+y me falta un @Injected de local-strategy.ts
+nest-access-control - para roles - npm install nest-access-control --save
